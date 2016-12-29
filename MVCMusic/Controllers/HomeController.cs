@@ -1,0 +1,42 @@
+﻿using MVCMusic.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace MVCMusic.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+    // GET: /Home/
+        public ActionResult Index()
+        {
+            return View();
+        }
+       
+            //
+        // GET: /Store/
+        public string Store(string Index)
+        {
+            return "Hello from Store.Index()";
+        }
+        //
+        // GET: /Store/Browse?genre=Disco
+        public string Browse(string genre)
+        {
+            string message = HttpUtility.HtmlEncode("Store.Browse, Genre = "
+        + genre);
+
+            return message;
+        }
+        //
+        // GET: /Store/Details/5
+        ActionResult Details(int id)
+        {
+            var album = new Album { Title = "Album " + id };
+            return View(album);
+        }
+    }
+}
